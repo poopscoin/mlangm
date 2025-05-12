@@ -132,7 +132,7 @@ get_config()
 
 ### `_extra() -> Localizer`
 
-Technical action, under normal conditions, __**not to be used**__.
+Technical action, under normal conditions, **not to be used**.
 
 Access the internal `Localizer` instance directly.
 
