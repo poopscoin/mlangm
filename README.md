@@ -14,13 +14,13 @@ pip install m-lang-m
 
 ---
 
-## ✨ Features
+## 🧰 Features
 
-- ✅ Supports both `.json` and `.yaml`/`.yml` translation files
-- ✅ Automatic directory resolution relative to the caller
-- ✅ Nested key support (e.g., `menu.settings.language`)
-- ✅ String formatting with `{placeholders}`
-- ✅ Returns the current config if needed
+- Supports both `.json` and `.yaml`/`.yml` translation files
+- Automatic directory resolution relative to the caller
+- Nested key support (e.g., `menu.settings.language`)
+- String formatting with `{placeholders}`
+- Returns the current config if needed
 
 ---
 
