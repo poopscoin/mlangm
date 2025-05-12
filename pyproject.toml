@@ -33,8 +33,6 @@ dependencies = [
 [project.urls]
 GitHub = "https://github.com/poopscoin/mlangm"
 
-[tool.setuptools]
-packages = ["mlangm"]
-
 [tool.setuptools.packages.find]
 exclude = ["tests", "tests.*"]
+packages = ["mlangm"]
