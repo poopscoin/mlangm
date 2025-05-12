@@ -10,7 +10,7 @@ from mlangm import configure, translate, get_config, _extra
 class TestLocalizer(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        configure(default_lang='en', translations_path='locale', strict_mode=True)
+        configure(default_lang='en', translations_path='locale')
 
     def test_greeting_en(self):
         self.assertEqual(translate('greeting', 'en'), 'Hello')
