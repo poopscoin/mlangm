@@ -1,0 +1,7 @@
+new_locale: "You choise new locale file!"
+another_bye: "Goodbye, good day, {new_name}"
+another_menu:
+  settings:
+    title: "My setting"
+  back: "Back to main menu"
+only_eng: "Another only English"

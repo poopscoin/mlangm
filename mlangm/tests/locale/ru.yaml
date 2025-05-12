@@ -1,0 +1,9 @@
+greeting: "Привет"
+farewell: "Пока, {name}"
+menu:
+  settings:
+    title: "Настройки"
+    button: "Кнопка"
+    test: "Много {one}, {two} и {thee}"
+  contacts:
+    title: "Контакты"

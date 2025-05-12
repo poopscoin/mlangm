@@ -1,0 +1,11 @@
+{
+    "greeting": "Hello",
+    "farewell": "Bye, {name}",
+    "menu": {
+        "settings": {
+            "title": "Settings"
+        },
+        "back": "Go back"
+    },
+    "only_eng": "English only"
+}

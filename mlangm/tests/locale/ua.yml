@@ -1,0 +1,11 @@
+greeting: "Привіт!"
+farewell: "До побачення, {name}"
+menu:
+  settings:
+    title: "Налаштування"
+    buttons:
+      next: "Наступна"
+      back: "Попередня"
+    descr: "Налаштуй свої повідомлення"
+  back: "Повернутися"
+only_ua: "Тільки українською"
