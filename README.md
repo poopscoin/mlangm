@@ -2,7 +2,7 @@
 
 **Mini localization manager for Python using JSON/YAML files**
 
-Mini language Manager is a lightweight and developer-friendly localization (i18n) tool for Python. It allows you to organize translations in plain JSON or YAML files and access them with nested keys. Supports fallback mechanisms and formatted string substitution.
+Mini language Manager is a lightweight and developer-friendly localization tool for Python. It allows you to organize translations in plain JSON or YAML files and access them with nested keys. Supports fallback mechanisms and placeholders.
 
 ---
 
@@ -16,13 +16,11 @@ pip install m-lang-m
 
 ## ✨ Features
 
-- ✅ Supports both `.json` and `.yaml`/`.yml` translation files  
-- ✅ Automatic directory resolution relative to the caller  
-- ✅ Nested key support (e.g., `menu.settings.language`)  
-- ✅ Optional strict mode (fallbacks or not)  
-- ✅ String formatting with `{placeholders}`  
-- ✅ Simple and minimal public API  
-- ✅ Returns the current config if needed  
+- ✅ Supports both `.json` and `.yaml`/`.yml` translation files
+- ✅ Automatic directory resolution relative to the caller
+- ✅ Nested key support (e.g., `menu.settings.language`)
+- ✅ String formatting with `{placeholders}`
+- ✅ Returns the current config if needed
 
 ---
 
@@ -56,7 +54,7 @@ menu:
 
 ## 🚀 Usage
 
-### 1. Configure the localizer
+### Configure the localizer
 
 ```python
 from mlangm import configure, translate, get_config
@@ -91,19 +89,45 @@ Initializes the localizer and loads translations.
 
 Returns the configuration dictionary.
 
+Example:
+```python
+config_info = configure(default_lang = 'en', translations_path = 'locale', strict_mode = False)
+```
+```python
+configure()
+```
 ---
 
 ### `translate(key: str, lang: str = None, **kwargs) -> str`
 
 Retrieves a translated string.  
-Supports fallback and string formatting.
+Supports fallback and placeholders.
 
+Example:
+```python
+translate('hello', name='Alex') # Output: "Hello, Alex!" | if 'hello' key -> "Hello, {name}!"
+```
+```python
+translate()
+```
 ---
 
 ### `get_config(key: str = None) -> str | bool | dict`
 
 Returns the current configuration or a single setting.
 
+- `default_lang`(str): Returns the default language code
+- `path`(str): Returns the path to the translations directory
+- `mode`(bool): Returns whether strict mode is enabled
+
+
+Example:
+```python
+get_config("path") # Output: "locale"
+```
+```python
+get_config()
+```
 ---
 
 ### `_extra() -> Localizer`
@@ -112,8 +136,7 @@ Technical action, under normal conditions, not to be used.
 
 Access the internal `Localizer` instance directly.
 
-## 🧪 Example _extra()
-
+Example:
 ```python
 from mlangm import configure, _extra
 
@@ -122,10 +145,10 @@ configure(default_lang='en', translations_path='locale')
 print(_extra().config) # Output: {'default_lang': 'en', 'path': 'locale', 'mode': False}
 print(_extra().default_lang) # Output: 'en'
 print(_extra().translations) # Output: Dictionary with translations from the 'locale' folder
-
 ```
-
-
+```python
+_extra()
+```
 ---
 
 ## 📄 License
