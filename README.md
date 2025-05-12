@@ -105,7 +105,7 @@ Supports fallback and placeholders.
 
 Example:
 ```python
-translate('hello', name='Alex') # Output: "Hello, Alex!" | if 'hello' key -> "Hello, {name}!"
+translate('hello', 'en', name='Alex') # Output: "Hello, Alex!" | if 'hello' key -> "Hello, {name}!"
 ```
 ```python
 translate()
@@ -132,7 +132,7 @@ get_config()
 
 ### `_extra() -> Localizer`
 
-Technical action, under normal conditions, not to be used.
+Technical action, under normal conditions, __**not to be used**__.
 
 Access the internal `Localizer` instance directly.
 
