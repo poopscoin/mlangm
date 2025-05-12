@@ -2,7 +2,7 @@
 
 **Mini localization manager for Python using JSON/YAML files**
 
-Mini language Manager is a lightweight and developer-friendly localization tool for Python. It allows you to organize translations in plain JSON or YAML files and access them with nested keys. Supports fallback mechanisms and placeholders.
+Mini language Manager is a lightweight and developer-friendly localization tool for Python. It allows you to organize translations in plain JSON or YAML files and access them with nested keys. Supports fallback and placeholders.
 
 ---
 
