@@ -81,27 +81,35 @@ class Localizer:
     def get_config(self, key: str = None) -> str | bool | dict:
         return self.config.get(key, self.config)
 
-def configure(default_lang='en', translations_path='translations', strict_mode=False):
+def configure(default_lang='en', translations_path='translations', strict_mode=False) -> dict:
     """
     Initializes and configures the localization manager.
 
     This function must be called before using `translate()` or other public API functions.
-    It loads translation files from the given directory and sets the default language.
+    It loads translation files from the specified directory and sets up the default language and behavior.
 
     Args:
-        default_lang (str): The default language code (e.g., 'en', 'ru'). Defaults to 'en'.
-        translations_path (str): Path to the directory containing translation files.
+        default_lang (str): Language code to use by default (e.g., 'en', 'ru'). Defaults to 'en'.
+        translations_path (str): Path to the directory containing translation files (JSON/YAML).
                                  Can be absolute or relative to the caller. Defaults to 'translations'.
-        strict_mode (bool): If True, only translated keys for the selected language will be used.
-                            If False, the default language or fallback to the key itself will be used. Defaults to False.
+        strict_mode (bool): If True, only keys explicitly translated in the selected language will be used.
+                            If False, the default language will be used as fallback, and then the key itself if missing.
+                            Defaults to False.
+
+    Returns:
+        dict: A configuration dictionary containing:
+            - 'default_lang' (str): The default language.
+            - 'path' (str): The resolved path to the translations directory.
+            - 'mode' (bool): Whether strict mode is enabled.
 
     Raises:
-        FileNotFoundError: If the specified translations directory does not exist.
+        FileNotFoundError: If the specified translations directory cannot be found.
     """
     global _localizer_instance
     normalized_path = os.path.normpath(translations_path)
     _localizer_instance = Localizer(default_lang=default_lang, translations_path=normalized_path, strict_mode=strict_mode)
     _localizer_instance.load()
+    return _localizer_instance.config
 
 def translate(key: str, lang: str = None, **kwargs) -> str:
     """
@@ -125,7 +133,7 @@ def translate(key: str, lang: str = None, **kwargs) -> str:
         raise RuntimeError("Localizer not configured. Call configure() first.")
     return _localizer_instance.translate(key=key, lang=lang, **kwargs)
 
-def get_config(key: str = None):
+def get_config(key: str = None) -> str | bool | dict:
     """
     Returns the current localizer configuration value.
 
@@ -144,7 +152,7 @@ def get_config(key: str = None):
     """
     return _localizer_instance.get_config(key=key)
 
-def _extra():
+def _extra() -> Localizer:
     """
     Returns the current instance of the localizer used by the module.
     This can be useful for accessing advanced features or internal state.
