@@ -145,4 +145,11 @@ def get_config(key: str = None):
     return _localizer_instance.get_config(key=key)
 
 def _extra():
+    """
+    Returns the current instance of the localizer used by the module.
+    This can be useful for accessing advanced features or internal state.
+
+    Returns:
+        Localizer: The active localizer instance.
+    """
     return _localizer_instance
