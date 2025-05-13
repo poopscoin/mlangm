@@ -1,11 +1,5 @@
-if __name__ == '__main__':
-    from sys import path
-    from os import getcwd
-    path.append(getcwd())
-
 import unittest
 from mlangm import configure, translate, get_config, _extra
-
 
 class TestLocalizer(unittest.TestCase):
     @classmethod
@@ -69,9 +63,8 @@ class TestLocalizer(unittest.TestCase):
     def test_another_nested_key_theepl_names_wrong(self):
         self.assertEqual(translate('menu.settings.test', 'ru', one='первых'), 'Много {one}, {two} и {thee}')
     
-    def test_test(self):
-        print(_extra().config)
-        self.assertEqual(0, 0)
+    def test_extra_func(self):
+        self.assertEqual(_extra().config, {'default_lang': 'en', 'path': 'locale', 'mode': False})
 
 class TestAnotherLocalizer(unittest.TestCase):
     @classmethod
@@ -84,10 +77,8 @@ class TestAnotherLocalizer(unittest.TestCase):
     def test_change_lang_file_with_name(self):
         self.assertEqual(translate('another_bye', 'en', new_name='Petr'), 'Goodbye, good day, Petr')
     
-    def test_test(self):
-        print(_extra().config)
-        self.assertEqual(0, 0)
-
+    def test_extra_func(self):
+        self.assertEqual(_extra().config, {'default_lang': 'ua', 'path': 'locale\\another_locale', 'mode': False})
 
 if __name__ == '__main__':
     unittest.main()
